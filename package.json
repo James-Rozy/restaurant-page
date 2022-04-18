@@ -1,0 +1,24 @@
+{
+  "name": "restaurant-page",
+  "version": "1.0.0",
+  "description": "A mock restaurant webpage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/James-Rozy/restaurant-page.git"
+  },
+  "author": "James Rozsypal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/James-Rozy/restaurant-page/issues"
+  },
+  "homepage": "https://github.com/James-Rozy/restaurant-page#readme",
+  "devDependencies": {
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
