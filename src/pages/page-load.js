@@ -5,10 +5,12 @@ import getContact from "./contact";
 const getHeader = () => {
   const header = document.createElement("header");
   const title = document.createElement("h1");
+  const nav = getNav();
   
   title.textContent = "Rozy's Roadhouse";
 
   header.appendChild(title);
+  header.appendChild(nav);
 
   return header;
 }
