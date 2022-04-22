@@ -1,6 +1,6 @@
-import getHome from "./home";
-import getMenu from "./menu";
-import getContact from "./contact";
+import setHome from "./home";
+import setMenu from "./menu";
+import setContact from "./contact";
 
 const getHeader = () => {
   const header = document.createElement("header");
@@ -17,19 +17,35 @@ const getHeader = () => {
 
 const getNav = () => {
   const nav = document.createElement("nav");
-  const btnHome = document.createElement("button");
-  const btnMenu = document.createElement("button");
-  const btnContact = document.createElement("button");
-
-  btnHome.textContent = "Home";
-  btnMenu.textContent = "Menu";
-  btnContact.textContent = "Contact";
+  const btnHome = getButton("Home", "btnHome");
+  const btnMenu = getButton("Menu", "btnMenu");
+  const btnContact = getButton("Contact", "btnContact");
 
   nav.appendChild(btnHome);
   nav.appendChild(btnMenu);
   nav.appendChild(btnContact);
 
   return nav;
+}
+
+const getButton = (name, className) => {
+  const button = document.createElement("button");
+
+  button.classList.add(className);
+  button.textContent = name;
+  button.addEventListener("click", e => {
+    if (e.target.classList.contains("btnHome")) {
+      setHome();
+    }
+    if (e.target.classList.contains("btnMenu")) {
+      setMenu();
+    }
+    if (e.target.classList.contains("btnContact")) {
+      setContact();
+    }
+  });
+
+  return button;
 }
 
 const getMain = () => {
@@ -51,13 +67,19 @@ const getFooter = () => {
 }
 
 const pageLoad = () => {
+  const favicon = document.createElement("link");
+  const body = document.getElementById("body");
   const content = document.getElementById("content");
+  
+  favicon.setAttribute("rel", "shortcut icon");
+  favicon.setAttribute("href", "./images/favicon.png");
 
+  document.head.appendChild(favicon);
   content.appendChild(getHeader());
   content.appendChild(getMain());
   content.appendChild(getFooter());
 
-  getHome();
+  setHome();
 }
 
 export default pageLoad;
